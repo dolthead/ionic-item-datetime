@@ -16,10 +16,12 @@
 
     <ion-list>
         <ion-item *ngFor="let item of items">
-            <h2><input type="text" [(ngModel)]="item.title"></h2>
-            <p>more stuff</p>
-            <div class="flex-col alarm-button" item-end (click)="picker.open()">
-                <ion-icon name="alarm" color="primary"></ion-icon>
+            <div item-content class="flex-col">
+                <ion-input type="text" [(ngModel)]="item.title"></ion-input>
+                <p>more stuff</p>
+            </div>
+            <div class="flex-col alarm-button" item-end>
+                <ion-icon name="alarm" color="primary" ></ion-icon>
                 <ion-datetime #picker displayFormat="h:mm a" pickerFormat="hmma" [(ngModel)]="startTime"></ion-datetime>
             </div>
         </ion-item>
