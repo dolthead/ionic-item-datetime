@@ -1,14 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Ionic Blank
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    The world is your oyster.
+    <p>
+        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    </p>
+
+    <button ion-button small (click)="addItem()">Add Item</button>
+
+    <ion-list>
+        <ion-item *ngFor="let item of items">
+            <h2><input type="text" [(ngModel)]="item.title"></h2>
+            <p>more stuff</p>
+            <div class="flex-col alarm-button" item-end (click)="picker.open()">
+                <ion-icon name="alarm" color="primary"></ion-icon>
+                <ion-datetime #picker displayFormat="h:mm a" pickerFormat="hmma" [(ngModel)]="startTime"></ion-datetime>
+            </div>
+        </ion-item>
+    </ion-list>
+
 </ion-content>
